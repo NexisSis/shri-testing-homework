@@ -21,7 +21,6 @@ describe("fileController.js", () => {
             }
         ];
         const result = createFiles(input,'hash');
-        console.log(result);
         expect(expectObj).to.be.deep.equal(result);
     });
 });
