@@ -21,15 +21,20 @@ module.exports = function(req, res, next) {
   const pathParam = (req.params[0] || '').split('/').filter(Boolean);
 
   const path = pathParam.length ? pathParam.join('/') + '/' : '';
+    console.log('hash is ' +hash);
+    console.log('path is '+ path);
+
 
   return gitFileTree(hash, path).then(
     list => {
+      console.log(list);
       const files = list.map(item => ({
         ...item,
         href: buildObjectUrl(hash, item),
         name: item.path.split('/').pop()
       }));
-
+        console.log('files stars here: ');
+        console.log(files);
       res.render('files', {
         title: 'files',
         breadcrumbs: buildBreadcrumbs(hash, pathParam.join('/')),

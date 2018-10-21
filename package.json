@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/main.js",
+    "test": "mocha ./test/**/*.js",
     "start": "node ./bin/www",
     "devstart": "ndb ./bin/www"
   },
