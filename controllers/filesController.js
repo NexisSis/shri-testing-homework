@@ -16,25 +16,23 @@ function buildObjectUrl(parentHash, { path, type }) {
   }
 }
 
-module.exports = function(req, res, next) {
+function createFiles(list,hash){
+  return list.map(item => ({
+        ...item,
+        href: buildObjectUrl(hash, item),
+        name: item.path.split('/').pop()
+    }));
+}
+
+function filesController(req, res, next) {
   const { hash } = req.params;
   const pathParam = (req.params[0] || '').split('/').filter(Boolean);
 
   const path = pathParam.length ? pathParam.join('/') + '/' : '';
-    console.log('hash is ' +hash);
-    console.log('path is '+ path);
-
 
   return gitFileTree(hash, path).then(
     list => {
-      console.log(list);
-      const files = list.map(item => ({
-        ...item,
-        href: buildObjectUrl(hash, item),
-        name: item.path.split('/').pop()
-      }));
-        console.log('files stars here: ');
-        console.log(files);
+      const files = createFiles(list,hash);
       res.render('files', {
         title: 'files',
         breadcrumbs: buildBreadcrumbs(hash, pathParam.join('/')),
@@ -44,3 +42,8 @@ module.exports = function(req, res, next) {
     err => next(err)
   );
 };
+
+module.exports = {
+    createFiles,
+    filesController
+}

@@ -1,13 +1,10 @@
 const git = require('../../utils/git');
 const { expect } = require('chai');
 
-
-
-
 describe("git.js", () => {
     it("проверка правильности формата возращаемых данных в gitHistory", async () => {
-        const history = await git.gitHistory(1, 20);
 
+        const history = await git.gitHistory(1, 20);
         let exprectedKeys = ['author','hash','msg','timestamp'];
 
         history.forEach(data =>{
@@ -34,11 +31,5 @@ describe("git.js", () => {
     //     const path = 'folder/path';
     //     const res = await git.gitFileTree(hash,path);
     //     console.log(res);
-    //
-    //     const table = 'typehash\my\path';
-    //     git.executeGit = async (params) => {
-    //         mock = params;
-    //         return await table;
-    //     };
     // });
 });
