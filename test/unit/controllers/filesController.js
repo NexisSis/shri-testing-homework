@@ -1,5 +1,5 @@
-const index = require('../../controllers/indexController');
-const { createFiles } = require('../../controllers/filesController');
+const index = require('../../../controllers/indexController');
+const { createFiles } = require('../../../controllers/filesController');
 const { expect } = require('chai');
 
 describe("fileController.js", () => {

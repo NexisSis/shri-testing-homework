@@ -17,8 +17,9 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "html-reporter": "^2.22.0",
+    "hermione":"^0.90.1",
     "mocha": "^5.2.0",
-    "ndb": "^1.0.26",
-    "selenium-standalone": "^6.15.3"
+    "ndb": "^1.0.26"
   }
 }

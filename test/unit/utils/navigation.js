@@ -1,6 +1,6 @@
 const { buildBreadcrumbs,
         buildFolderUrl,
-        buildFileUrl } = require('../../utils/navigation');
+        buildFileUrl } = require('../../../utils/navigation');
 const { expect } = require('chai');
 
 describe("navigation.js", () => {

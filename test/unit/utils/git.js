@@ -1,4 +1,4 @@
-const git = require('../../utils/git');
+const git = require('../../../utils/git');
 const { expect } = require('chai');
 
 describe("git.js", () => {
